@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="4dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="?android:attr/selectableItemBackground">
+
+        <!-- Чекбокс выполнения -->
+        <CheckBox
+            android:id="@+id/checkbox_completed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp" />
+
+        <!-- Контент задачи -->
+        <LinearLayout
+            android:id="@+id/content_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/checkbox_completed"
+            android:layout_toRightOf="@id/checkbox_completed"
+            android:orientation="vertical">
+
+            <!-- Заголовок и приоритет в одной строке -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- Заголовок (центрируется по доступному пространству) -->
+                <TextView
+                    android:id="@+id/text_task_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:gravity="start" />
+
+                <!-- Флаг (иконка) -->
+                <ImageView
+                    android:id="@+id/icon_flag"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:src="@drawable/ic_flag"
+                    android:visibility="gone" />
+
+                <!-- Приоритетная метка -->
+                <TextView
+                    android:id="@+id/text_priority_flag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:textSize="12sp"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:background="@drawable/bg_priority" />
+            </LinearLayout>
+
+            <!-- Описание -->
+            <TextView
+                android:id="@+id/text_task_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/darker_gray"
+                android:layout_marginBottom="8dp"
+                android:maxLines="2"
+                android:ellipsize="end" />
+
+            <!-- Дата выполнения -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_calendar"
+                    android:layout_marginEnd="4dp"
+                    android:tint="@color/blue" />
+
+                <TextView
+                    android:id="@+id/text_due_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@color/blue" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
